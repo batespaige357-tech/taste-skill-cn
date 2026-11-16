@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taste Skill CN · 同一份中文，三种表达</title>
+  <link rel="stylesheet" href="../skills/taste-skill-cn/assets/typography.css">
+  <style>
+    :root { color-scheme: light; background: #e9ede9; color: #252b29; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+    body { margin: 0; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; cursor: pointer; min-height: 44px; padding: 8px 16px; border: 1px solid #87988e; background: transparent; color: #263c32; border-radius: 5px; }
+    button[aria-pressed="true"] { background: #234e3d; color: #fff; border-color: #234e3d; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #244cc8; outline-offset: 4px; }
+    .workbench { max-width: 1240px; margin: auto; padding: 26px 32px; }
+    .brand { font-size: 16px; font-weight: 700; }
+    .intro { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .intro p { font-size: 14px; color: #495c51; margin: 8px 0 20px; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+    .compare { margin-left: auto; }
+    main { max-width: 1240px; margin: 0 auto 32px; background: #f7f5ef; box-shadow: 0 8px 32px #24382b12; }
+    .page { padding: 32px 6% 56px; }
+    .masthead { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #b6beb4; padding-bottom: 18px; font-size: 13px; }
+    .layout { display: grid; grid-template-columns: 1.8fr 1fr; gap: 8%; padding-top: 64px; }
+    .eyebrow { color: #235b4b; font-size: 14px; margin: 0 0 22px; }
+    h1 { margin: 0 0 28px; max-width: 11em; font-family: "Songti SC", "STSong", "SimSun", serif; font-weight: 500; }
+    .lead { font-size: 19px; line-height: 1.85; max-width: 28em; }
+    .annotation { font-size: 14px; border-top: 1px solid #9aab9c; padding-top: 20px; color: #46564b; }
+    .annotation h2 { font: inherit; font-weight: 700; }
+    .annotation p { margin-top: 8px; }
+    .facts { margin: 0; }
+    .facts div { padding: 14px 0; border-bottom: 1px solid #c8cec3; }
+    .facts dt { font-size: 12px; color: #526056; }
+    .facts dd { margin: 3px 0 0; font-size: 16px; }
+    .quote { font-family: "Songti SC", "SimSun", serif; font-size: 25px; line-height: 1.65; padding: 28px 0; border-block: 1px solid #bdc5b9; margin: 40px 0; max-width: 24em; }
+    .reading { margin-top: 40px; max-width: 36em; }
+    .reading h2 { font-size: 22px; margin-top: 32px; }
+    .steps { padding-left: 1.4em; }
+    .steps li { padding: 8px 0 8px 8px; }
+    .status { display: inline-block; background: #e3e9df; padding: 12px 16px; font-size: 14px; margin-top: 24px; }
+    .note { padding-top: 36px; font-size: 12px; color: #536157; }
+    .explain { max-width: 1176px; margin: 0 auto 32px; padding: 0 32px; color: #405349; font-size: 14px; line-height: 1.8; }
+    .explain strong { color: #213e2e; }
+    .explain a { color: #234e3d; }
+    main[data-direction="exhibit"] { background: #f2f4f1; color: #182624; }
+    [data-direction="exhibit"] .layout { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+    [data-direction="exhibit"] h1 { font-family: inherit; font-size: clamp(2.6rem, 7vw, 6rem); font-weight: 800; max-width: 10em; }
+    [data-direction="exhibit"] .eyebrow { color: #155e63; }
+    [data-direction="exhibit"] .annotation { display: grid; grid-template-columns: 1fr 1.5fr; gap: 32px; }
+    [data-direction="exhibit"] .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    [data-direction="exhibit"] .quote { font-family: inherit; border: 0; background: #155e63; color: #fff; padding: 28px; max-width: none; }
+    [data-direction="manual"] { background: #fff; color: #202938; }
+    [data-direction="manual"] .layout { grid-template-columns: 1.4fr 1fr; padding-top: 40px; }
+    [data-direction="manual"] h1 { font-family: inherit; font-size: clamp(2rem, 4vw, 3.7rem); font-weight: 700; }
+    [data-direction="manual"] .eyebrow { color: #244cc8; }
+    [data-direction="manual"] .quote { display: none; }
+    [data-direction="manual"] .reading { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; max-width: none; border-top: 1px solid #d6dce4; }
+    [data-direction="manual"] .status { background: #edf1ff; color: #244cc8; }
+    .before { display: none; padding: 64px 6%; text-align: center; background: #f4f2ff; }
+    .before h2 { color: #5832a4; font-size: clamp(30px, 5vw, 60px); margin: 0; }
+    .before p { max-width: 34em; margin: 24px auto; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+    .card { background: white; padding: 24px; border-radius: 16px; }
+    .card h3 { font-size: 18px; }
+    [data-mode="before"] .before { display: block; }
+    [data-mode="before"] .page { display: none; }
+    @media (max-width: 700px) {
+      .workbench { padding: 20px 18px; }
+      .compare { margin-left: 0; }
+      main { margin-inline: 12px; }
+      .page { padding: 24px 22px 40px; }
+      .layout, [data-direction="manual"] .layout { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; }
+      [data-direction="exhibit"] .annotation, [data-direction="manual"] .reading { grid-template-columns: 1fr; gap: 12px; }
+      [data-direction="exhibit"] .facts { grid-template-columns: 1fr; gap: 0; }
+      .lead { font-size: 17px; }
+      .quote { font-size: 22px; }
+      .cards { grid-template-columns: 1fr; }
+      .explain { padding: 0 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="workbench">
+    <div class="intro"><div class="brand">Taste Skill CN / 中文网页审美</div><p>同一份中文，三种表达。切换看看，结构如何跟着内容改变。</p></div>
+    <div class="controls" role="group" aria-label="选择视觉方向">
+      <button type="button" data-choice="magazine" aria-pressed="true">像一本杂志</button>
+      <button type="button" data-choice="exhibit" aria-pressed="false">像一张展签</button>
+      <button type="button" data-choice="manual" aria-pressed="false">像一份说明书</button>
+      <button type="button" id="compare" class="compare" aria-pressed="false">查看常见模板</button>
+    </div>
+  </header>
+  <main id="demo" class="taste-cn" data-direction="magazine" data-mode="after">
+    <section class="before" aria-label="常见模板对照">
+      <h2>开启阅读新体验</h2>
+      <p>探索无限可能，连接每一份热爱。加入我们的阅读之旅，发现不一样的自己。</p>
+      <div class="cards"><div class="card"><h3>品质阅读</h3><p>优质的内容，带来独特体验。</p></div><div class="card"><h3>深度交流</h3><p>思想的碰撞，发现更多可能。</p></div><div class="card"><h3>共同成长</h3><p>携手同行，一起探索未来。</p></div></div>
+      <p>这是刻意编写的模板化对照示例，没有真实报名入口。</p>
+    </section>
+    <article class="page">
+      <div class="masthead"><span>周末读书会</span><span>虚构演示 / 不是活动公告</span></div>
+      <div class="layout">
+        <div>
+          <p class="eyebrow" id="eyebrow">给还愿意慢慢读书的人</p>
+          <h1 class="cn-title">把周末<br>留给一本书。</h1>
+          <p class="lead" id="lead">带一本最近在读的书，也带来一句读过之后，还留在心里的话。先安静读一会儿，再听听彼此为什么记住它。</p>
+        </div>
+        <aside class="annotation">
+          <div><h2 id="aside-title">留一点时间，不急着得出答案。</h2><p id="aside-copy">不需要读完，不需要准备一场演讲。你带来的那一句话，就是交流的起点。</p></div>
+          <dl class="facts"><div><dt>时间</dt><dd>待确认</dd></div><div><dt>地点</dt><dd>待确认</dd></div><div><dt>参与方式</dt><dd>待确认</dd></div></dl>
+        </aside>
+      </div>
+      <blockquote class="quote">有些话，读到的时候很轻。<br>留在心里的时候，却很长。</blockquote>
+      <div class="reading cn-prose">
+        <section><h2>我们会怎样度过这段时间</h2><ol class="steps"><li><strong>安静阅读。</strong> 翻开自己带来的书，按自己的速度读。</li><li><strong>轮流分享。</strong> 读一句想留下的话，说说为什么。</li><li><strong>自由交流。</strong> 可以回应，也可以只是认真听。</li></ol></section>
+        <section><h2>来之前，只需带一本书</h2><p>读到一半的、刚翻开的、想重新读的都可以。不用做读书笔记，也没有标准答案。</p><p>如果你还没想好分享哪一句，就先来读一会儿。沉默也可以是一种参与。</p></section>
+      </div>
+      <p class="status">报名方式尚未确定 · 本页不收集信息</p>
+      <footer class="note">本活动、介绍与流程均为虚构演示，用来展示中文网页的排版与内容结构。</footer>
+    </article>
+  </main>
+  <footer class="explain"><p id="reason" role="status"><strong>杂志方向：</strong>让邀请的话成为主角，阅读连续展开，活动事实放在轻量边注里。</p><p>这是手工编写的技能演示，不是模型盲测结果。<a href="../examples/brief.md">查看原始需求</a> · <a href="../README.md">返回项目说明</a></p></footer>
+  <script>
+    const demo = document.getElementById('demo');
+    const compare = document.getElementById('compare');
+    const directions = {
+      magazine: ['给还愿意慢慢读书的人', '留一点时间，不急着得出答案。', '不需要读完，不需要准备一场演讲。你带来的那一句话，就是交流的起点。', '杂志方向：让邀请的话成为主角，阅读连续展开，活动事实放在轻量边注里。'],
+      exhibit: ['一场从一句话开始的相遇', '活动信息', '带上你的书。具体时间、地点与参与方式将在确认后公布。', '展签方向：放大活动主题，让时间、地点和参与方式组成独立事实栏。'],
+      manual: ['参与指南', '参加之前，先看这里', '适合愿意阅读与交流的人。带一本书即可；无需读完，也不需要准备演讲。', '说明书方向：减弱抒情装饰，优先交代参与条件、活动步骤和准备事项。']
+    };
+    function showAfter() {
+      demo.dataset.mode = 'after';
+      compare.setAttribute('aria-pressed', 'false');
+      compare.textContent = '查看常见模板';
+    }
+    document.querySelectorAll('[data-choice]').forEach(button => {
+      button.addEventListener('click', () => {
+        const key = button.dataset.choice;
+        demo.dataset.direction = key;
+        showAfter();
+        document.querySelectorAll('[data-choice]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        const values = directions[key];
+        ['eyebrow', 'aside-title', 'aside-copy', 'reason'].forEach((id, index) => document.getElementById(id).textContent = values[index]);
+      });
+    });
+    compare.addEventListener('click', () => {
+      if (demo.dataset.mode === 'before') { showAfter(); document.getElementById('reason').textContent = directions[demo.dataset.direction][3]; }
+      else { demo.dataset.mode = 'before'; compare.setAttribute('aria-pressed', 'true'); compare.textContent = '返回中文内容设计'; document.getElementById('reason').textContent = '模板对照：标题空泛，三张卡片说了相近的话，读者看不到具体怎样参加。此对照不是原项目生成结果。'; }
+    });
+  </script>
+</body>
+</html>

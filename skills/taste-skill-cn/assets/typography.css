@@ -1,0 +1,33 @@
+/* Taste Skill CN — optional scoped typography baseline, MIT, UTF-8. */
+.taste-cn {
+  --cn-sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --cn-serif: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--cn-sans);
+  line-height: 1.7;
+  line-break: strict;
+  word-break: normal;
+}
+.taste-cn *, .taste-cn *::before, .taste-cn *::after { box-sizing: border-box; }
+.taste-cn .cn-prose { max-inline-size: 36em; font-size: 1.125rem; line-height: 1.85; }
+.taste-cn .cn-prose p { margin-block: 0 1em; }
+.taste-cn .cn-title {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+.taste-cn .cn-long-token { overflow-wrap: anywhere; }
+.taste-cn img { max-inline-size: 100%; block-size: auto; }
+.taste-cn :focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.taste-cn .cn-action { min-block-size: 44px; min-inline-size: 44px; }
+@media (max-width: 480px) {
+  .taste-cn .cn-prose { font-size: 1.0625rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .taste-cn *, .taste-cn *::before, .taste-cn *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

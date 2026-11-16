@@ -1,0 +1,4 @@
+interface:
+  display_name: "Taste Skill CN · 中文网页审美"
+  short_description: "从中文排版、内容叙事与三种日常风格方向出发，设计适合中文阅读的网页"
+  default_prompt: "使用 $taste-skill-cn 把我的中文内容做成适合阅读、有自己气质的网页。"
