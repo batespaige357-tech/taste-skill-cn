@@ -69,11 +69,11 @@ npx skills add batespaige357-tech/taste-skill-cn --skill taste-skill-cn
 
 ## 来源与致谢
 
-受 **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)** 启发，独立维护、非官方。感谢原项目把网页设计判断转化为可执行规则的思路。
+受 **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)** 启发，由本仓库维护。感谢原项目把网页设计判断转化为可执行规则的思路。
 
 本版技能正文、中文排版参考、内容叙事方法和 CSS 重新编写；没有打包上游代码、摄影或视觉标识，也不依赖安装原技能。
 
-我们的方向是**中文内容与阅读体验**：不强制整屏区块，不要求每页动效，按内容长度安排结构。`cn` 表示中文设计方向，不表示官方翻译。
+我们的方向是**中文内容与阅读体验**：不强制整屏区块，不要求每页动效，按内容长度安排结构。`cn` 表示中文设计方向。
 
 [来源与参考提交](ATTRIBUTION.md) · [上游 MIT 许可](licenses/taste-skill-MIT.txt) · [本项目 MIT 许可](LICENSE)
 
